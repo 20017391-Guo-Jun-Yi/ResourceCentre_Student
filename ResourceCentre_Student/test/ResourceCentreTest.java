@@ -91,7 +91,7 @@ public class ResourceCentreTest {
 		
 	}
 	@Test
-	public void testRetrieveAllChromebook() {
+	public void testRetrieveAllChromebook() {// JunHao (edited 1 error inside)
 		//fail("Not yet implemented");
 		// write your code here
 		assertNotNull("Test if there is valid Chromebook arraylist to add to", chromebookList);
@@ -106,7 +106,7 @@ public class ResourceCentreTest {
 		// test if the expected output string is the same as the list of chromebook retrieved from the sourcecentre
 		allChromebook= ResourceCentre.retrieveAllChromebook(chromebookList);
 		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0011", "My Google Chromebook 1st", "Yes", "", "Mac OS");
-		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG chromebook 4+", "Yes", "", "Win 10");
+		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CB0012", "SAMSUNG Chromebook 4+", "Yes", "", "Win 10"); //JunHao Change because u typo the "C" as "c"
 	
 		assertEquals("Check that ViewAllCamcorderlist", testOutput, allChromebook);
 	}
@@ -146,7 +146,7 @@ public class ResourceCentreTest {
 				Boolean ok = ResourceCentre.doLoanChromebook(chromebookList, "CB0011", "7-7-2021");
 				assertTrue("Test if an available item is ok to loan?", ok);
 				// error condition
-				ok = ResourceCentre.doLoanChromebook(chromebookList, "Cc0011", "7-7-2021");
+				ok = ResourceCentre.doLoanChromebook(chromebookList, "CC0011", "7-7-2021");
 				assertFalse("Test if an available item is NOT ok to loan again?", ok);
 				// error condition
 				ResourceCentre.addChromebook(chromebookList, cb2);
@@ -190,10 +190,10 @@ public class ResourceCentreTest {
 				// normal
 				ResourceCentre.addChromebook(chromebookList, cb2);
 				cb2.setIsAvailable(false);
-				isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CC0012");
+				isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0012");
 				assertTrue("Test if loaned out camcorder CB0012 is returned -false?", isReturned);
 				// error condition
-				isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CC0013");
+				isReturned = ResourceCentre.doReturnChromebook(chromebookList, "CB0013");
 				assertFalse("Test if non-existing chromebook CC0013 is returned -false?", isReturned);
 	}
 	

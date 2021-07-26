@@ -58,7 +58,7 @@ public class ResourceCentre {
 
 				if (itemType == 1) {
 					// Loan camcorder
-					ResourceCentre.loanCamcorder(camcorderList);
+					ResourceCentre.loanCamcorder(camcorderList); 
 				} else if (itemType == 2) {
 					// Loan Chromebook
 					ResourceCentre.loanChromebook(chromebookList);
